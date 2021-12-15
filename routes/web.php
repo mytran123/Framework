@@ -29,3 +29,20 @@ Route::post('/login', function (\Illuminate\Http\Request $request) {
     return view('login_error');
 });
 
+
+
+Route::get('/product', function () {
+
+    return view('product');
+});
+
+Route::post('/product', function (\Illuminate\Http\Request $request) {
+//    dd($request);
+//    $discount_amount = $price * $discount * 0.01;
+    $price = $request->price;
+    $discount = $request->discount;
+    $discount_amount = $price * $discount * 0.01;
+
+    return view('show_discount_amount', compact(['price','discount','discount_amount']));
+});
+
