@@ -32,7 +32,6 @@ Route::post('/login', function (\Illuminate\Http\Request $request) {
 
 
 Route::get('/product', function () {
-
     return view('product');
 });
 
@@ -46,3 +45,25 @@ Route::post('/product', function (\Illuminate\Http\Request $request) {
     return view('show_discount_amount', compact(['price','discount','discount_amount']));
 });
 
+
+
+
+Route::get('/dictionary', function () {
+    return view('dictionary');
+});
+
+Route::post('/dictionary', function (\Illuminate\Http\Request $request) {
+    switch ($request->name) {
+        case "dog":
+            echo "chó";
+            break;
+        case "cat":
+            echo "mèo";
+            break;
+        case "chicken":
+            echo "gà";
+            break;
+        default:
+            echo "Chưa có từ này trong từ điển";
+    }
+});
